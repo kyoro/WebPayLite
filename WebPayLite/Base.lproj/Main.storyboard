@@ -95,10 +95,21 @@
                                 <state key="normal" title="Charge">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnChargeTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CQf-ut-2Is"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="txtAmount" destination="E5H-ko-mK5" id="oyC-DM-zuf"/>
+                        <outlet property="txtCardNumber" destination="Zaj-hF-GW8" id="DEs-Lz-R2K"/>
+                        <outlet property="txtCvc" destination="zFp-bd-ofu" id="t1G-ys-ezz"/>
+                        <outlet property="txtExpireMonth" destination="JPy-hu-5gs" id="gNS-Q7-6st"/>
+                        <outlet property="txtExpireYear" destination="6qn-C2-O4P" id="QlR-SI-UZ0"/>
+                        <outlet property="txtName" destination="ZhP-7d-CLE" id="uDa-JX-WQX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

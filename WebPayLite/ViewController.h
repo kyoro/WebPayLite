@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *txtCardNumber;
+@property (weak, nonatomic) IBOutlet UITextField *txtExpireMonth;
+@property (weak, nonatomic) IBOutlet UITextField *txtExpireYear;
+@property (weak, nonatomic) IBOutlet UITextField *txtCvc;
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
+@property (weak, nonatomic) IBOutlet UITextField *txtAmount;
+
+- (IBAction)btnChargeTouch:(id)sender;
 
 @end
