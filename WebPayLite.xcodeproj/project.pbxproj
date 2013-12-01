@@ -21,6 +21,7 @@
 		5924CA4C184BF72700E47DE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924CA2E184BF72700E47DE9 /* UIKit.framework */; };
 		5924CA54184BF72700E47DE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5924CA52184BF72700E47DE9 /* InfoPlist.strings */; };
 		5924CA56184BF72700E47DE9 /* WebPayLiteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5924CA55184BF72700E47DE9 /* WebPayLiteTests.m */; };
+		5924CA61184BFCC300E47DE9 /* WebPayLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5924CA60184BFCC300E47DE9 /* WebPayLite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		5924CA51184BF72700E47DE9 /* WebPayLiteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebPayLiteTests-Info.plist"; sourceTree = "<group>"; };
 		5924CA53184BF72700E47DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5924CA55184BF72700E47DE9 /* WebPayLiteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebPayLiteTests.m; sourceTree = "<group>"; };
+		5924CA5F184BFCC300E47DE9 /* WebPayLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPayLite.h; sourceTree = "<group>"; };
+		5924CA60184BFCC300E47DE9 /* WebPayLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPayLite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				5924CA3C184BF72700E47DE9 /* Main.storyboard */,
 				5924CA3F184BF72700E47DE9 /* ViewController.h */,
 				5924CA40184BF72700E47DE9 /* ViewController.m */,
+				5924CA5F184BFCC300E47DE9 /* WebPayLite.h */,
+				5924CA60184BFCC300E47DE9 /* WebPayLite.m */,
 				5924CA42184BF72700E47DE9 /* Images.xcassets */,
 				5924CA31184BF72700E47DE9 /* Supporting Files */,
 			);
@@ -250,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5924CA41184BF72700E47DE9 /* ViewController.m in Sources */,
+				5924CA61184BFCC300E47DE9 /* WebPayLite.m in Sources */,
 				5924CA3B184BF72700E47DE9 /* AppDelegate.m in Sources */,
 				5924CA37184BF72700E47DE9 /* main.m in Sources */,
 			);
