@@ -10,6 +10,10 @@ This library provides simple access to WebPay. Charge and Tokenize features are 
 
 # How to use
 
+### Copy files below to your project
+- WebPayLite.h
+- WebPayLite.m
+
 ### Set delegate and declare class variables
 ```
 @interface ViewController : UIViewController <WebPayLiteDelegate>{
