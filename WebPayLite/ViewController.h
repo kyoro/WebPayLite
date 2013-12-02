@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebPayLite.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <WebPayLiteDelegate>{
+    WebPayLite *wpl;
+}
 @property (weak, nonatomic) IBOutlet UITextField *txtCardNumber;
 @property (weak, nonatomic) IBOutlet UITextField *txtExpireMonth;
 @property (weak, nonatomic) IBOutlet UITextField *txtExpireYear;
