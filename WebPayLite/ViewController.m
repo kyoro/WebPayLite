@@ -22,7 +22,7 @@
     //WebPayLite
     wpl = [[WebPayLite alloc] init];
     wpl.delegate = self;
-    wpl.secretKey = @"test";
+    wpl.secretKey = @"YOUR_SECRET_KEY";
 
     //Close Keybord
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
@@ -43,13 +43,13 @@
 }
 
 - (IBAction)btnChargeTouch:(id)sender {
-    NSDictionary *params = @{ @"card[number]" : self.txtCardNumber,
-                              @"card[exp_month]" : self.txtExpireMonth,
-                              @"card[exp_year]" : [NSString stringWithFormat:@"20%@",self.txtExpireYear] ,
-                              @"card[cvc]" : self.txtCvc,
-                              @"card[name]" : self.txtName,
-                              @"amount" : self.txtAmount,
-                              @"currency" : @"usd",
+    NSDictionary *params = @{ @"card[number]" : self.txtCardNumber.text,
+                              @"card[exp_month]" : self.txtExpireMonth.text,
+                              @"card[exp_year]" : [NSString stringWithFormat:@"20%@",self.txtExpireYear.text] ,
+                              @"card[cvc]" : self.txtCvc.text,
+                              @"card[name]" : self.txtName.text,
+                              @"amount" : self.txtAmount.text,
+                              @"currency" : @"jpy",
                               @"description" : @"transaction test"
                               };
     [wpl createCharge:params];
@@ -57,17 +57,47 @@
 
 - (void)WebPayLiteDelegateCompleted:(NSString *)jsonBody {
     NSLog(@"%@",jsonBody);
+    NSDictionary *jsonObject = [NSJSONSerialization
+                                JSONObjectWithData: [jsonBody dataUsingEncoding:NSUTF8StringEncoding]
+                                options: NSJSONReadingAllowFragments
+                                error:nil];
+    NSString *amount = [jsonObject objectForKey:@"amount"];
+    NSString *currency = [jsonObject objectForKey:@"currency"];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Succeed!"
+                          message:[NSString stringWithFormat:@"%@ %@ charged!",currency,amount]
+                          delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
     
 }
 
 -(void)WebPayLiteDelegateError:(NSError *)error {
-       NSLog(@"ERROR");
-
-
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Network Error"
+                          message:[error description]
+                          delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
 }
--(void)WebPayLiteDelegateFailed:(NSString *)jsonBody statusCode:(int)status {
-       NSLog(@"%@",jsonBody);
 
+-(void)WebPayLiteDelegateFailed:(NSString *)jsonBody statusCode:(int)status {
+    NSLog(@"%@",jsonBody);
+    NSDictionary *jsonObject = [NSJSONSerialization
+                                JSONObjectWithData: [jsonBody dataUsingEncoding:NSUTF8StringEncoding]
+                                options: NSJSONReadingAllowFragments
+                                error:nil];
+    NSString *message = [[jsonObject objectForKey:@"error"] objectForKey:@"message"];
+
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Transaction Faild"
+                          message:message
+                          delegate:self
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
 }
 
 

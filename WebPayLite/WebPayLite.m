@@ -16,7 +16,6 @@
     return self;
 }
 
-
 -(void)createToken:(NSDictionary*)params {
     NSString* url =  [NSString stringWithFormat:@"%@/v1/tokens",self.apiBase ];
     [self postRequest:url sendParams:params];
@@ -27,10 +26,8 @@
     [self postRequest:url sendParams:params];
 }
 
-
 - (void) postRequest:(NSString*)endpoint sendParams:(NSDictionary*)params
 {
-    NSLog(@"AAA");
     NSURL *url = [NSURL URLWithString:endpoint];
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -48,7 +45,6 @@
     [NSURLConnection    sendAsynchronousRequest:request
                                           queue:queue
                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-NSLog(@"DDD");
                                   if(error){
                                       dispatch_async(dispatch_get_main_queue(), ^{
                                           [self.delegate WebPayLiteDelegateError:error ];
@@ -56,7 +52,8 @@ NSLog(@"DDD");
                                   }else{
                                       int httpStatusCode = ((NSHTTPURLResponse *)response).statusCode;
                                       NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                      if (httpStatusCode == 200) {
+                                      NSLog(@"%d",httpStatusCode);
+                                      if (httpStatusCode == 200 || httpStatusCode == 201) {
                                           NSLog(@"STATUS:%d",httpStatusCode);
                                           dispatch_async(dispatch_get_main_queue(), ^{
                                               [self.delegate WebPayLiteDelegateCompleted:responseText];
