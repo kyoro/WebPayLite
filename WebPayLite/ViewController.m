@@ -22,7 +22,7 @@
     //WebPayLite
     wpl = [[WebPayLite alloc] init];
     wpl.delegate = self;
-    wpl.secretKey = @"YOUR_SECRET_KEY";
+    wpl.apiKey = @"YOUR_PUBLIC_KEY";
 
     //Close Keybord
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
@@ -42,17 +42,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)btnChargeTouch:(id)sender {
+- (IBAction)btnCreateTokenTouch:(id)sender {
     NSDictionary *params = @{ @"card[number]" : self.txtCardNumber.text,
                               @"card[exp_month]" : self.txtExpireMonth.text,
                               @"card[exp_year]" : [NSString stringWithFormat:@"20%@",self.txtExpireYear.text] ,
                               @"card[cvc]" : self.txtCvc.text,
                               @"card[name]" : self.txtName.text,
-                              @"amount" : self.txtAmount.text,
-                              @"currency" : @"jpy",
-                              @"description" : @"transaction test"
+                              @"description" : @"tokenize test"
                               };
-    [wpl createCharge:params];
+    [wpl createToken:params];
 }
 
 - (void)WebPayLiteDelegateCompleted:(NSString *)jsonBody {
@@ -61,14 +59,16 @@
                                 JSONObjectWithData: [jsonBody dataUsingEncoding:NSUTF8StringEncoding]
                                 options: NSJSONReadingAllowFragments
                                 error:nil];
-    NSString *amount = [jsonObject objectForKey:@"amount"];
-    NSString *currency = [jsonObject objectForKey:@"currency"];
+    NSString *token = [jsonObject objectForKey:@"id"];
+    self.txtToken.text = token;
+
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Succeed!"
-                          message:[NSString stringWithFormat:@"%@ %@ charged!",currency,amount]
+                          message:[NSString stringWithFormat:@"Token: %@",token]
                           delegate:self
                           cancelButtonTitle:@"OK"
                           otherButtonTitles:nil];
+
     [alert show];
     
 }

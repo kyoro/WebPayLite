@@ -18,7 +18,7 @@
 @interface WebPayLite : NSObject
 
 @property (nonatomic, assign) id <WebPayLiteDelegate> delegate;
-@property (assign) NSString *secretKey;
+@property (assign) NSString *apiKey;
 @property (assign) NSString *apiBase;
 -(id)init;
 -(void)createToken:(NSDictionary*)params;

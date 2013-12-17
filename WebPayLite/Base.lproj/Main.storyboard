@@ -77,38 +77,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AMOUNT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zx0-OL-n7e">
-                                <rect key="frame" x="20" y="203" width="136" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Token" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zx0-OL-n7e">
+                                <rect key="frame" x="20" y="263" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AMOUNT" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E5H-ko-mK5">
-                                <rect key="frame" x="20" y="232" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOKEN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E5H-ko-mK5">
+                                <rect key="frame" x="12" y="292" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzG-pT-drK">
-                                <rect key="frame" x="12" y="270" width="280" height="30"/>
+                                <rect key="frame" x="12" y="225" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Charge">
+                                <state key="normal" title="Tokenize">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnChargeTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CQf-ut-2Is"/>
+                                    <action selector="btnCreateTokenTouch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pIX-U4-yxy"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="txtAmount" destination="E5H-ko-mK5" id="oyC-DM-zuf"/>
                         <outlet property="txtCardNumber" destination="Zaj-hF-GW8" id="DEs-Lz-R2K"/>
                         <outlet property="txtCvc" destination="zFp-bd-ofu" id="t1G-ys-ezz"/>
                         <outlet property="txtExpireMonth" destination="JPy-hu-5gs" id="gNS-Q7-6st"/>
                         <outlet property="txtExpireYear" destination="6qn-C2-O4P" id="QlR-SI-UZ0"/>
                         <outlet property="txtName" destination="ZhP-7d-CLE" id="uDa-JX-WQX"/>
+                        <outlet property="txtToken" destination="E5H-ko-mK5" id="Pyg-Yx-1FE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

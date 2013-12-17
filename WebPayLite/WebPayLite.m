@@ -12,7 +12,7 @@
 
 -(id)init{
     self.apiBase = @"https://api.webpay.jp";
-    self.secretKey = @"";
+    self.apiKey = @"";
     return self;
 }
 
@@ -32,7 +32,7 @@
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
 
-    NSString *encodedCredentials = [Base64Encorder base64String:[NSString stringWithFormat:@"%@:",self.secretKey]];
+    NSString *encodedCredentials = [Base64Encorder base64String:[NSString stringWithFormat:@"%@:",self.apiKey]];
     NSString *basic = [NSString stringWithFormat:@"Basic %@",encodedCredentials];
     [request addValue:basic forHTTPHeaderField:@"Authorization"];
 

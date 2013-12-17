@@ -17,8 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtExpireYear;
 @property (weak, nonatomic) IBOutlet UITextField *txtCvc;
 @property (weak, nonatomic) IBOutlet UITextField *txtName;
-@property (weak, nonatomic) IBOutlet UITextField *txtAmount;
+@property (weak, nonatomic) IBOutlet UITextField *txtToken;
 
-- (IBAction)btnChargeTouch:(id)sender;
+- (IBAction)btnCreateTokenTouch:(id)sender;
 
 @end
