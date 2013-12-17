@@ -27,7 +27,7 @@ This library provides simple access to WebPay. Charge and Tokenize features are 
 //WebPayLite
 wpl = [[WebPayLite alloc] init];
 wpl.delegate = self;
-wpl.secretKey = @"YOUR_SECRET_KEY";
+wpl.apiKey = @"YOUR_PUBLIC_KEY";
 ```
 ### Charge or Tokenize
 
@@ -37,11 +37,9 @@ wpl.secretKey = @"YOUR_SECRET_KEY";
                               @"card[exp_year]" : @"18" ,
                               @"card[cvc]" : @"123",
                               @"card[name]" : @"KYOSUKE INOUE",
-                              @"amount" : @"100",
-                              @"currency" : @"jpy",
-                              @"description" : @"Test Charge"
+                              @"description" : @"Test Tokenize"
                               };
-    [wpl createCharge:params];
+    [wpl createToken:params];
 ```
 
 That's it!
